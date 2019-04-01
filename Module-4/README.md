@@ -149,18 +149,18 @@ In one of the vulnerabilities I described in [Module 3](../Module-3/README.md) w
 - Open the application binary in `Hopper` (or `Ghidra`), search for the `Utils` class, select the `downloadWhitePaper:` method and you'll find:
     ```c
     +(void)downloadWhitePaper:(void )arg2 {
-    r20 = [[AFURLSessionManager alloc] initWithSessionConfiguration:[[NSURLSessionConfiguration defaultSessionConfiguration] retain]];
-    r0 = NSSearchPathForDirectoriesInDomains(0x9, 0x1, 0x1);
-    r22 = [[r0 firstObject] retain];
-    r25 = [[self whitepaperName] retain];
-    r23 = [[r22 stringByAppendingPathComponent:r25] retain];
-    r26 = [[NSURL fileURLWithPath:r23] retain];
-    [self removeFileIfExistsAtPath:r26];
-    r25 = [[NSURLRequest requestWithURL:[[NSURL URLWithString:@"https://raw.githubusercontent.com/ivRodriguezCA/RE-iOS-Apps-Extras-Github/master/Files/coinza.html"] retain]] retain];
-    r0 = [r20 downloadTaskWithRequest:r25 progress:0x0 destination:&var_78 completionHandler:&var_A0];
-    r0 = [r0 retain];
-    objc_msgSend(r0, @selector(resume));
-}
+      r20 = [[AFURLSessionManager alloc] initWithSessionConfiguration:[[NSURLSessionConfiguration defaultSessionConfiguration] retain]];
+      r0 = NSSearchPathForDirectoriesInDomains(0x9, 0x1, 0x1);
+      r22 = [[r0 firstObject] retain];
+      r25 = [[self whitepaperName] retain];
+      r23 = [[r22 stringByAppendingPathComponent:r25] retain];
+      r26 = [[NSURL fileURLWithPath:r23] retain];
+      [self removeFileIfExistsAtPath:r26];
+      r25 = [[NSURLRequest requestWithURL:[[NSURL URLWithString:@"https://raw.githubusercontent.com/ivRodriguezCA/RE-iOS-Apps-Extras-Github/master/Files/coinza.html"] retain]] retain];
+      r0 = [r20 downloadTaskWithRequest:r25 progress:0x0 destination:&var_78 completionHandler:&var_A0];
+      r0 = [r0 retain];
+      objc_msgSend(r0, @selector(resume));
+    }
     ```
 - As you can see this method is using the `AFURLSessionManager` to download a file from a remote URL.
 - If you open the application binary in `Hopper` (or `Ghidra`), search for the `InitialViewController` class, select the `viewDidLoad` method and you'll find that this method is called there:
