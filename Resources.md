@@ -10,6 +10,6 @@ If you're eager to learn more and continue developing your skills on mobile secu
 - Allyson's Blog - Allyson O'Malley ([@ally_o_malley](https://twitter.com/ally_o_malley)): [Link](https://www.allysonomalley.com/)
 - Objective by the Sea (Conference) - Patrick Wardle ([@patrickwardle](https://twitter.com/patrickwardle)): [Link](https://objectivebythesea.com/v2/)
 - NowSecure's Blog - ([@nowsecuremobile](https://twitter.com/nowsecuremobile)): [Link](https://www.nowsecure.com/blog/)
-
+- [PDF] Hacking iOS Applications - Security Innovation ([@SecInnovation](https://twitter.com/SecInnovation)): [Link](https://web.securityinnovation.com/hubfs/iOS%20Hacking%20Guide.pdf)
 
 _If you have more link let me know and I'll add them._
