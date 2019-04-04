@@ -18,4 +18,4 @@ Just wanted to set the right expectations, this course is basically for everyone
 
 If you're still interested, join me in learning how to reverse iOS applications!
 
-_Note: Don't worry if you don't have a jailbroken device, you'll only need it for [Module 2](Module-2/Module-2.md). You can skip this module an come back to it once you get your hands on a jailbroken device._
+_Note: Don't worry if you don't have a jailbroken device, you'll only need it for [Module 2](Module-2/README.md). You can skip this module an come back to it once you get your hands on a jailbroken device._
