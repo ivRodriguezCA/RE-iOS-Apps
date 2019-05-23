@@ -14,7 +14,7 @@ For this exercise I'm going to exclusively use `Hopper` because I don't know how
 - Load the `CoinZa` binary in `Hopper`.
 - Search for the `Utils` class and select the `isJailbroken` method.
 - If you're not there, select the `CFG mode` tab to see the method's assembly code.
-- As most of the jailbreak detection methods, this is a long list of checks with early returns if any of this checks is successful. In the flow graph we can see that most of the checks have a jump to a label `loc_100009cc4` (this might be different on your end), but the important part is that the instruction that's executed when jumping to this label:
+- As most of the jailbreak detection methods, this is a long list of checks with early returns if any of these checks is successful. In the flow graph we can see that most of the checks have a jump to a label `loc_100009cc4` (this might be different on your end), but the important part is that the instruction that's executed when jumping to this label:
     ```assembly
     orr        w20, wzr, #0x1
     ```

@@ -17,7 +17,7 @@ unzip CoinZa.zip
 - Finally, move all the files within the `.app` bundle to a new folder. This is to have an easier access to them, instead of right-clicking it and selecting `Show Package Contents` all the time.
 ```bash
 mkdir CoinZaFiles
-mv CoinZa.app/* CoinZaFiles/
+mv Payload/CoinZa.app/* CoinZaFiles/
 ```
 
 #### Analyzing embedded files
@@ -35,7 +35,7 @@ Almost every single iOS application uses at least one 3rd party framework. As a 
 An essential part of the static analysis of any application is to gather information about what methods and classes are contained in the application. This step gives you very important information because, as many developers know, declaring very descriptive methods help the development of good products. Thus the names of some of the methods will give an insight of what the application features are. I'll show you how to use `class-dump-z` to dump the application's classes and methods. There's not going to be an exercise for this section, but you can then spend some time reading through the output and taking notes on interesting classes or methods.
 - Dumping the classes is extremely easy with `class-dump-z`, navigate to the folder where you extracted the `CoinZa.app` files and run `class-dump-z` with the binary name as its first parameter and save the ouput on a `dump.txt` file:
     ```bash
-    cd ~/Downloads/Payload/CoinZaFiles
+    cd ~/Downloads/CoinZaFiles
     class-dump-z CoinZa > dump.txt
     ```
 - If you open the `dump.txt` file, you have now all the classes, methods and some instance variable names of the application binary. As you can see there are some interesting classes like `Wallet`, `KeyPair`, `AddFundsViewController`, `CreateWalletViewController`. Even without installing the application we can see that this _probably_ is a cryptocurrency application.
@@ -142,25 +142,4 @@ if (iVar1 == 0) {
 - Gather as much information as you can on this step because you'll use it in the dynamic analysis step.
 
 #### Solutions
-- `coinza-c7e97-firebase-adminsdk-ok3f8-df3457e3e8.json`: This is a configuration file for a [Firebase](https://firebase.google.com/) project and it **includes a private key** that the developers were using to connect with the Firebase backend services.
-    - **The problem:** Sometimes developers don't realize that any file they embed with the app will be _easily_ extracted by anyone. In this case this configuration file gives attackers all the information they need to impersonate a legitimate access to the company's Firebase backend services and data.
-    - **Recommended fix:** This configuration file is supposed to be stored in a backend server, not in a client application. What the developers need to do is to add an authentication flow in the client side and that lets the app authenticate with their own backend server and then have that backend server connect to Firebase.
-    - _Note: I found a similar configuration file on a popular VPN application and when I reported it to the company they replied saying their Firebase project was not being used anymore and that's why they didn't feel the need to remove the configuration file, I did **not** use the private key to connect to their Firebase backend and verify if it was valid._
-
-    ![Firebase private key suggestion](https://github.com/ivRodriguezCA/RE-iOS-Apps-Extras-Github/blob/master/Module-3/firebase-private-key-warning.png?raw=true)
-
-- `SQLCIPHER_KEY`: A hard-coded secret key in the application's [info.plist](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Introduction/Introduction.html) file, this is the secret key used for the application's [SQLCipher](https://www.zetetic.net/sqlcipher/) to encrypt its database contents.
-    - **The problem:** Even though the developers were thinking about protecting their users' generated content by encrypting the database, they did so by hard-coding a secret key that **all** installations of their app would use. This is a little bit harder to exploit but if an attacker is able to, for example, get a hold of users' _not encrypted_ iTunes backups, they will be able to decrypt the databases because **all** databases are using the same secret key.
-    - **Recommended fix:** Generate a secret key per installation and store it in the [iOS keychain](https://developer.apple.com/documentation/security/keychain_services), this way attackers would have to compromise the devices of every victim and that's a considerable harder attack.
-
-- `NSAllowsArbitraryLoads`: Disables [App Transport Security](https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW33) (aka ATS), allowing week TLS configurations.
-    - **The problem:** Apple introduced ATS to protect users from week and vulnerable TLS configurations, disabling this feature means that this application puts the security and privacy of the end user at risk.
-    - **Recommended fix:** Remove this key from the `Info.plist` and work with the backend engineers to update the servers' TLS configuration.
-
-- `CFBundleURLTypes`: Having custom `Scheme URLs` is not an issue, but it means this app can be launched by other applications using the `coinza://` scheme URL and it probably takes some parameters with it. Just take a note about this feature, it will be helpful on the next module's exercises.
-
-- `AFNetworking 2.5.1`: This version of the popular framework `AFNetworking` had a serious vulnerability that allowed attackers to perform [Man-in-the-Middle](https://en.wikipedia.org/wiki/Man-in-the-middle_attack) (aka MitM) attacks on any application using any version <= 2.5.1 of this framework that was _not_ using SSL pinning.
-    - **The problem:** Even though 3rd party frameworks help developers by saving time and resources, because they don't need to build that functionality themselves, they can introduce vulnerabilities and the developer has to wait until a patch is made available. In this case the authors of the frameworks acted quickly and released a patched version (though it was not a [complete fix](https://github.com/AFNetworking/AFNetworking/blob/2.5.2/AFNetworking/AFSecurityPolicy.m#L257-L265)) but all the applications had to be updated and re-submitted to the App Store and then users had to update their apps on their devices. This process takes a lot of time from patch to updating the end user. Every time you are about to add a 3rd party framework, think about this and consider if the framework is _really_ needed. Even if you don't introduce a vulnerability yourself, the moment you include a 3rd party framework on your application it becomes your responsibility.
-    - **Recommended fix:** The fix is relatively simple, just update the framework. But the real recommendation is to use the minimum amount of 3rd party frameworks on your applications. I try to use the built-in frameworks that Apple provides before exploring a 3rd party option.
-
-[^1] Since I **love** pizza, most of the things I do involve pizza. Hence the Pizza-based cryptocurrency `CoinZa`.
+Find the solutions [here](Solutions.md).
