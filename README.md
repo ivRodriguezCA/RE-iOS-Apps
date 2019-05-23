@@ -32,6 +32,9 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+### Donations
+I don't really accept donations because I do this to share what I learn with the community. If you want to support me just re-share this content and help reach more people. I also have an online store ([nullswag.com](https://nullswag.com)) with cool clothing thingies if you want to get something there.
+
 ### Disclaimer
 I created this course on my own and it doesn't reflect the views of my employer, all the comments and opinions are my own.
 
