@@ -1,6 +1,6 @@
-### Prerequisites
+### ~Prerequisites~ Recommended concepts
 
-This course is intended to help anyone that wants to start learning about reverse engineering iOS applications, understand the basics of runtime manipulation and binary patching. Since its target audience is beginners and _maybe_ intermediate researchers/developers/engineers/etc there are no mandatory prerequisites, however here's a list of recommended concepts and tools that might help you navigate through this course easier:
+This course is intended to help anyone that wants to start learning about reverse engineering iOS applications, understand the basics of runtime manipulation and binary patching. Since its target audience is beginners and _maybe_ intermediate researchers/developers/engineers/etc there are no mandatory prerequisites, I instead give you some _nice-to-have_ s. Here's a list of recommended concepts and tools that might help you navigate through this course easier:
 
 - A computer, ideally a Mac. (_All the material covered in this course was created using a Mac but almost all the tools used have a Windows version or alternative, except Xcode_)
 - Jailbroken iPhone/iPad/iPod on iOS 10 and above.
