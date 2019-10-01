@@ -7,10 +7,8 @@ _Note: If you need help jailbreaking your device, there are many resources onlin
 #### On your computer
 
 - Download the latest version of [iTunnel](https://code.google.com/archive/p/iphonetunnel-usbmuxconnectbyport/downloads): iTunnel will allow you to [SSH over USB](https://iphonedevwiki.net/index.php/SSH_Over_USB).
-- Download the latest version of [Clutch](https://github.com/KJCracks/Clutch/releases): Clutch will allow you to decrypt iOS applications on iOS < 10.0.
 - Download the latest version of [Cydia Impactor](http://www.cydiaimpactor.com/): Impactor will allow you install iOS applications on your device, signed with a developer account's certificate.
 - Download and install [Hopper](https://www.hopperapp.com/): Hopper is a reverse engineering tool that lets you disassemble, decompile and debug ARM applications, it supports other architectures but in this course I'll focus just on ARM-based binaries. The trial version is enough.
-- Download the latest version of [bfinject's](https://github.com/BishopFox/bfinject) `bfinject.tar`: bfinject will allow you to use `Cycript` and `Clutch` on iOS >= 11.0.
 - Download the latest version of [Cycript](http://www.cycript.org/): Cycript will allow you to modify the applications' behaviour at runtime via an interactive console.
 - Download the latest version of [Frida](https://www.frida.re/docs/ios/): Frida will allow you to write scripts to change the applications' behaviour at runtime.
     - To install `Frida`:
@@ -20,6 +18,15 @@ _Note: If you need help jailbreaking your device, there are many resources onlin
 - Download the latest version of [Bettercap](https://www.bettercap.org/installation/): Bettercap will allow you to perform MitM attacks remotely to a device.
 - Download the latest version of [class-dump-z](https://code.google.com/archive/p/networkpx/downloads): class-dump-z will allow you to dump Objc classes. There's a Swift version but you won't needed since my vulnerable app is written in Objc.
 - Download the latest version of [Ghidra](https://ghidra-sre.org/): Ghidra is another reverse engineering tool, which will let you do some of the same tasks as Hopper.
+  ##### If your device is on iOS 10.x
+  - Download the latest version of [Clutch](https://github.com/KJCracks/Clutch/releases): Clutch will allow you to decrypt iOS applications.
+
+  ##### If your device is on >= iOS 11
+  - Download the latest version of [bfinject's](https://github.com/BishopFox/bfinject) `bfinject.tar`: bfinject will allow you to use `Cycript` and `Clutch` to decrypt iOS applications.
+
+  ##### If your device is on iOS 12.x
+  - Download the latest version of [frida-ios-dump](https://github.com/AloneMonkey/frida-ios-dump): `frida-ios-dump` will allow you to decrypt iOS applications and transfer them automatically to your computer.
+  - Install its dependencies `sudo pip install -r requirements.txt --upgrade`.
 
 #### On your device with iOS version < 11.0
 
@@ -47,7 +54,7 @@ In some cases a jailbreak tool for iOS < 11.0 might not come with a SSH client, 
 
 If your device asks for a `root` password then it _already_ has SSH working, thus you can skip this step.
 
-#### On your device with iOS version >= 11.0
+#### On your device with iOS > 11
 
 - Connect your device to your computer.
 - On your computer, open a terminal window and run `iTunnel` with the following parameters:
@@ -81,6 +88,14 @@ If your device asks for a `root` password then it _already_ has SSH working, thu
     ```bash
     tar xvf bfinject.tar
     ```
+
+#### On your device with iOS 12.x
+- Open Cydia and search `frida` and install it:
+    - Tap the `Sources` tab.
+    - Add a source: `https://build.frida.re`
+    - Now you can go to the `Search` tab and search for `frida`.
+
+(*Note: Since I've only used the Unc0ver jailbreaks I don't know if you're jailbroken with [Chimera](https://chimera.sh/) and/or use `Sileo` as your package manager if you can install Frida.*)
 
 ### Conclusions
 

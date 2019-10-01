@@ -31,7 +31,7 @@ _Note: In case you missed it, you'll only need a jailbroken device for this modu
     ```
 - Now you have a decrypted version of the app.
 
-#### If your device's iOS version >= 11.0
+#### If your device is on iOS 11.x
 - Download any application from the App Store.
 - Run `iTunnel` to forward your SSH traffic via USB:
     ```bash
@@ -59,6 +59,29 @@ _Note: In case you missed it, you'll only need a jailbroken device for this modu
     ```bash
     scp -P 2222 root@localhost:/private/var/mobile/Containers/Bundle/Application/{app-uuid}/Documents/decrypted-app.ipa ~/Desktop/
     ```
+- Now you have a decrypted version of the app.
+
+#### If your device is on iOS 12.x
+- Download any application from the App Store.
+- Run `iTunnel` to forward your SSH traffic via USB:
+    ```bash
+    itnl --lport 2222 --iport 22
+    ```
+- On your computer, navigate to where you stored `frida-ios-dump`.
+  ```bash
+  cd ~/Downloads/frida-ios-dump/
+  ```
+- Edit `dump.py` to match your device's settings like root password (default is `alpine`) and SSH forwarding port (in this case it'd be `2222`).
+- List the installed applications by running:
+    ```bash
+    ./dump.py -l
+    ```
+- Copy the application's `Identifier`.
+- Decrypt the application by running:
+    ```bash
+    ./dump.py <identifier>
+    ```
+- You'll see the application will be launched on your device and then, if all goes well, you should have a `.ipa` bundle on the same directory where you ran the script.
 - Now you have a decrypted version of the app.
 
 #### Extra information

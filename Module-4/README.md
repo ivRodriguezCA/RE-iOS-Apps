@@ -260,7 +260,7 @@ Since you need a jailbroken device for this exercise, I'm assuming you've been u
         ```
 - You have now an interactive console that you can use to send commands to the `CoinZa` application.
 
-**If your device's iOS version >= 11.0**
+**If your device is on iOS 11.x**
 - Run `iTunnel` to forward your SSH traffic via USB:
     ```bash
     itnl --lport 2222 --iport 22
@@ -297,6 +297,8 @@ Abort trap: 6
   ```bash
   cp /usr/local/Cellar/ruby\@2.0/2.0.0-p648_7/lib/libruby.2.0.0.dylib /usr/local/bin/Cycript.lib/
   ```
+
+  *Note: Haven't been able to get cycript/BFInject to work on iOS 12.x but runtime manipulation on Cycript can be done on Frida (see below).*
 
 **Any version of iOS**
 - Now that you have an interactive console via `Cycript` we can start by removing that annoying popup. First we are going to use the `choose` function to get all the instances of the `UIAlertController` class. The `choose` function reads the provided class signature and searches the memory for objects that have a similar signature and returns an array of all the objects it can find:
