@@ -10,6 +10,8 @@ This is my first attempt to creating an online course so bear with me if it's no
 
 If you find typos, mistakes or plain wrong concepts please be kind and tell me so that I can fix them and we all get to learn!
 
+### Version: 1.1
+
 ### Modules
 
 - [Prerequisites](Prerequisites.md)
@@ -21,6 +23,9 @@ If you find typos, mistakes or plain wrong concepts please be kind and tell me s
 - [Module 5 - Binary Patching](/Module-5/README.md)
 - [Final Thoughts](Final-Thoughts.md)
 - [Resources](Resources.md)
+
+### EPUB Download
+Thanks to [natalia-osa](https://github.com/natalia-osa)'s brilliant [idea](https://github.com/ivRodriguezCA/RE-iOS-Apps/issues/7), there's now a `.epub` version of the course that you can download from [here](https://github.com/ivRodriguezCA/RE-iOS-Apps-Extras-Github/blob/master/Files/RE-iOS-Applications-v1.1.epub). As Natalia mentioned, this is for easier consumption of the content. Thanks again for this fantastic idea, Natalia 🙏🏼.
 
 ### License
 
