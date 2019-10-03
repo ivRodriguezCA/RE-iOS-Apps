@@ -17,6 +17,7 @@ _Note: If you need help jailbreaking your device, there are many resources onlin
     ```
 - Download the latest version of [Bettercap](https://www.bettercap.org/installation/): Bettercap will allow you to perform MitM attacks remotely to a device.
 - Download the latest version of [class-dump-z](https://code.google.com/archive/p/networkpx/downloads): class-dump-z will allow you to dump Objc classes. There's a Swift version but you won't needed since my vulnerable app is written in Objc.
+- Download the latest version of [momdec](https://github.com/atomicbird/momdec): momdec will allow you to decompile CoreData models.
 - Download the latest version of [Ghidra](https://ghidra-sre.org/): Ghidra is another reverse engineering tool, which will let you do some of the same tasks as Hopper.
   ##### If your device is on iOS 10.x
   - Download the latest version of [Clutch](https://github.com/KJCracks/Clutch/releases): Clutch will allow you to decrypt iOS applications.
