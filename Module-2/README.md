@@ -6,6 +6,32 @@ Since a system that can perform operations on encrypted binaries doesn't exist y
 
 _Note: In case you missed it, you'll only need a jailbroken device for this module and the last part of the [Module 4](../Module-4/README.md). For the next modules I'll provide the decrypted version of the iOS application._
 
+#### Bagbak
+
+[Bagbak](https://github.com/ChiChou/bagbak)
+
+This tool only depends on node.js, `zip` command (optional) and frida on iDevices. Even SSH is not required.
+Been tested on iOS 8, 11-13, works with checkra1n on latest firmware. (Havn't tested yet, but iOS 9-10 should work as well)
+Bagbak also supports **decrypting App Extensions**, while most of other tools don't.
+
+Steps:
+
+- Download any application from App Store
+- [Setup frida on your jailbroken iDevice](https://frida.re/docs/ios/#with-jailbreak)
+- Install **latest** [node.js](https://nodejs.org/en/) LTS (long term support) on your desktop
+- Install bagbak command tool on your desktop:
+    `npm install -g bagbak`
+- Connect your device via USB. 
+- Perform decryption:
+    `bagbak [AppName or bundle identifier]`
+- You can use `bagbak -l` to list all avaliable apps
+- Check `dump` folder on current working directory for decrypted binaries and packed ipa
+
+ProTip:
+- If more than one device is connected on USB, use `--uuid` to choose one
+- frida connection via TCP is also supported. Use `--host` to pass a remote IP
+- If you see app accidently crashes, manually launching the app before `bagbak` command would increase stability.
+
 #### If your device's iOS version < 11.0
 - Download any application from the App Store.
 - Run `iTunnel` to forward your SSH traffic via USB:
