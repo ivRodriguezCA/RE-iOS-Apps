@@ -13,7 +13,7 @@ The exercises in this module are going to be different from the previous module.
 To do the exercises in this module you'll need to first install the `CoinZa` application on your device. Luckily is super simple.
 - If you haven't already, sign up for an `Apple Developer Account` [here](https://developer.apple.com/) (click on the `Account` tab), it's free.
 - Connect your device to your computer.
-- Open `Cydia Impactor` and drag-n-drop the `CoinZa.ipa`. **Important** it has to be the original `.ipa` you downloaded [here](https://github.com/ivRodriguezCA/RE-iOS-Apps-Extras-Github/tree/master/Files) and not the binary you extracted.
+- Open `Cydia Impactor` and drag-n-drop the `CoinZa.ipa`. **Important** it has to be the original `.ipa` you downloaded [here](https://github.com/ivRodriguezCA/RE-iOS-Apps-Extras-Github/tree/master/Files) and not the binary you extracted. (Cydia Impactor needs paid developer account($99), free account doesn't work).
 - Enter your developer username and password and wait for `Impactor` to load install the application on your device.
 - Troubleshooting:
     - If `Impactor` says your password is incorrect (_and you're 100% sure it's not_) or something about an "app-specific password". It probably means you need to generate an app-specific password, here's a [tutorial on how to do it](https://www.imore.com/how-generate-app-specific-passwords-iphone-ipad-mac).
@@ -27,6 +27,8 @@ To do the exercises in this module you'll need to first install the `CoinZa` app
         - Scroll down and select `Profiles & Device Management`.
         - In the `Developer App` section, select your developer account.
         - Tap `Trust` and confirm.
+    - file installer.cpp line 71 what _assert( teams.empty()), means need paid account, free account doesn't work.
+     
 
 ##### URL Scheme injection
 As you discovered in the static analysis step, the `CoinZa` application uses custom `Scheme URLs` and if you use what you learned in [Module 3](../Module-3/README.md) and open the application binary in `Hopper` (or `Ghidra`), search for the `AppDelegate` class, select the `application:openURL:options:` method and open it in the `pseudo-code` mode you can find:
