@@ -467,8 +467,8 @@ If you've played around with the `CoinZa` application, you've probably noticed t
 - Up until this point all you've done is following the same steps that you did with `Cydia` but with `Frida`'s interactive console. But you have one step left, enabling the pro version:
     ```javascript
     function setProVersion() {
-    	var userDefaultsClass = ObjC.classes.NSUserDefaults;
-    	userDefaultsClass.setObject_forKey_(true,'isProVersion');
+    	var userDefaultsClass = ObjC.classes.NSUserDefaults.standardUserDefaults();
+    	userDefaultsClass.setObject_forKey_('YES', 'isProVersion');
     }
     ```
 - Now if you increase the balance of any wallet you'll get an extra 20% for free!
